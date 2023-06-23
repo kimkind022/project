@@ -1,0 +1,190 @@
+.headerWrap {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	background-color: white;
+	z-index: 999;
+}
+
+.headerWrap a:hover {
+	color: rgb(240, 93, 35);
+}
+
+#head {
+	width: 1200px;
+	height: 90px; 
+	margin : 0px auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+}
+
+#head #title {
+	width: 240px;
+}
+
+#title>.titleLink {
+	width: 240px;
+	color: black;
+	text-decoration: none;
+}
+
+#title>.titleLink>div {
+	float: left;
+	display: flex;
+	align-items: center;
+}
+
+#title>.titleLink #titleIcon {
+	width: 50px;
+	margin-right: 10px;
+}
+
+#title>.titleLink #logo {
+	font-family: 'Jua', sans-serif;
+	font-size: 30pt;
+	color: rgb(240, 93, 35);
+}
+
+.headerWrap .search {
+	width: 333px;
+	padding: 0px 20px;
+	position: relative;
+}
+
+.headerWrap .search input {
+	border: 1.5px solid rgb(240, 93, 35);
+	border-radius: 5px;
+	width: 300px;
+	height: 40px;
+	margin: 0 auto;
+	padding: 0 15px;
+	box-sizing: content-box;
+}
+
+.headerWrap .search #searchIcon {
+	width: 20px;
+	position: absolute;
+	top: 13px;
+	right: 35px;
+}
+
+.headerWrap #logInOutNav img {
+	width: 30px;
+}
+
+.headerWrap #logInOutNav {
+	font-size: 11pt;
+	color: lightgray;
+	display: flex;
+	align-items: center;
+}
+
+.headerWrap #logInOutNav li {
+	padding-left: 20px;
+	float: left;
+}
+
+.headerWrap #logInOutNav a {
+	color: gray;
+}
+
+#loginUser {
+	color: black !important;
+	font-size: 12pt;
+}
+
+#loginUser a {
+	color: black !important;
+}
+
+#userMenu {
+	display: none;
+	width: 150px;
+	height: 160px;
+	margin: 0 auto;
+	border: 1px solid lightgray;
+	background-color: white;
+	position: absolute;
+	top: 60px;
+	right: 100px;
+	z-index: 999;
+	box-shadow: 5px 5px 5px rgb(0, 0, 0, 15%);
+}
+
+#userMenu  div {
+	width: 120px;
+	height: 30px;
+	padding: 5px 15px;
+}
+
+#userMenu>div:hover {
+	background-color: #EAEAEA;
+}
+
+#mainnav ul {
+	width: 200px;
+	height: 90px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	font-size: 14pt;
+	font-weight: bold;
+}
+
+#mainnav li {
+	float: left;
+}
+
+#mainnav a:hover {
+	color: rgb(240, 93, 35);
+}
+
+#subnavBG {
+	width: 100%;
+	height: 51px;
+	background-color: white;
+	z-index: 997;
+	top: 91px;
+	position: absolute;
+	display: none;
+}
+
+#subnavBG #subnav {
+	width: 1200px;
+	height: 50px;
+	margin: 0px auto;
+	font-size: 12pt;
+}
+
+#subnavBG ul {
+	height: 50px;
+	float: left;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+#subnavBG li {
+	padding-right: 20px;
+	float: left
+}
+
+#subnavBG a:hover {
+	color: rgb(240, 93, 35);
+}
+
+
+#sNav{
+	display:none;
+}
+
+#cNav{
+	display:none;
+}
+
+#fNav{
+	display:none;
+}

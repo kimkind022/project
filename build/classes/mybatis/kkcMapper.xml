@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="storeMap">
+	<!-- id=객체명, resultType=resultset(result 담을 타입) -->
+	
+	<select id="selectReviewCount">
+		select productId, count(productId) as reviewCount from reviews group by productId
+	</select>
+	
+	
+	<select id="selectProductWithReviewCount" resultType="dto.ProductBeanWithReviewCount">
+		select count(rr.productId) as re , p.* from products as p
+		left outer join reviews rr
+		on rr.productid = p.id 
+		left outer join 
+		(select productid from heartroom  group by productid order by count(productid) desc limit 100)  as r
+		on r.productid = p.id
+		group by  p.id;
+	</select>
+	
+	<select id="selectProductDetail" resultType="dto.ProductBean" parameterType="int">
+		select * from products where id=#{productId}
+	</select> 
+	
+</mapper>
+ 

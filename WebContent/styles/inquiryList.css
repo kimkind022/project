@@ -1,0 +1,155 @@
+.sectionWrap {
+  width: 100%;
+}
+
+.sectionWrap2 {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  overflow: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+aside {
+  width: 200px;
+  background-color: lightgray;
+}
+
+section {
+  width: 900px;
+  margin: 50px auto;
+}
+
+section .sectionTitle {
+  width: 100%;
+  height: 35px;
+  display: flex;
+  align-items: flex-end;
+  margin: 0px 0 20px 0;
+}
+
+section .sectionTitle>div {
+  float: left;
+}
+
+section .sectionTitle>div:nth-child(1) {
+  font-size: 20pt;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+.postWrite {
+  width: 100%;
+  margin: -50px 0 10px 0;
+  overflow: auto;
+}
+
+.postWrite input {
+  float: right;
+  width: 100px;
+  height: 40px;
+}
+
+section table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+section tr {
+  border-bottom: 1px solid rgb(244, 244, 244);
+}
+
+section tr:nth-child(1) {
+  font-weight: 700;
+  border-top: 2px solid rgb(51, 51, 51);
+  border-bottom: 1px solid rgb(51, 51, 51);
+}
+
+section td {
+  align-content: center;
+  padding: 20px 0;
+  word-break: keep-all;
+}
+
+section tr:nth-child(1) td {
+  align-content: center;
+  height: 62px;
+}
+
+section td:nth-child(1) {
+  width: 100px;
+}
+
+.item td:nth-child(2) {
+  width: 600px;
+  text-align: left;
+}
+
+.item tr:nth-child(n+2) td:nth-child(3) {
+  
+}
+
+.item td:nth-child(3) {
+  width: 100px;
+}
+
+.item td:nth-child(4) {
+  width: 100px;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: table-row;
+  border: 2px solid rgb(51, 51, 51);
+  border-top: 1px solid rgb(51, 51, 51);
+  background-color: rgb(247, 247, 242);
+}
+
+.show td:nth-child(1) {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.show td a {
+  width: 35px;
+}
+
+.show td div {
+  width: 10px;
+}
+
+.item td {
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: rgb(197, 216, 109);
+}
+
+.pageList {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: auto;
+}
+
+.pageList li {
+  margin-right: 10px;
+}
+
+.pageList li:last-child {
+  margin: 0;
+}
+
+.focusRow {
+  border: 2px solid rgb(51, 51, 51);
+  border-bottom: 1px solid rgb(51, 51, 51);
+}

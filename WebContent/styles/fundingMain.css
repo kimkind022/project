@@ -1,0 +1,181 @@
+section {
+	width: 1200px;
+	margin: 50px auto 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+#leftRow {
+	display: flex;
+	flex-direction: column;
+}
+
+#leftRow .fundingAD {
+	height: 340px;
+	background-color: lightgray;
+}
+
+.fundingAD img {
+	width: 100%;
+	height: 340px;
+	object-fit: cover;
+}
+
+#leftRow .containerTitle {
+	width: fit-content;
+	font-weight: bold;
+	font-size: 18pt;
+	margin: 28px 10px;
+}
+
+#leftRow .allShow {
+	text-align: right;
+	margin: -40px 0 20px 0;
+	cursor: pointer;
+}
+
+#leftRow>div {
+	width: 875px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-bottom: 40px;
+}
+
+#leftRow>div:not(.fundingAD){
+	height:380px;
+	border-top:1px solid black;
+}
+
+#leftRow ul {
+	display: flex;
+	justify-content: flex-start;
+}
+
+#leftRow li {
+	width: calc(100% / 3);
+	height: 290px;
+}
+
+#leftRow .fundingPost {
+	margin: 0 10px;
+}
+
+#leftRow .fundingPost .thumbnail {
+	height: 180px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.fundingPost .thumbnail img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.fundingPost .thumbnail img:hover {
+	transition: all 0.1s linear;
+	transform: scale(1.05);
+}
+
+#leftRow .fundingPost .title {
+	font-size: 13pt;
+	color: black;
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	font-weight: 700;
+}
+
+#leftRow .fundingPost .last {
+	display: flex;
+	justify-content: flex-start;
+	align-items: baseline;
+}
+
+
+#rightRow .containerTitle {
+	width: fit-content;
+	font-weight: bold;
+	font-size: 18pt;
+	margin: 0px 10px 28px 10px;
+}
+
+#rightRow .allShow {
+	text-align: right;
+	margin: -40px 0 20px 0;
+	cursor: pointer;
+}
+
+#rightRow .fundingRanking {
+	width: 285px;
+}
+
+#rightRow .fundingRanking>* {
+	width: 100%;
+}
+
+#rightRow li {
+	width: 285px;
+	margin-bottom: 20px;
+}
+
+#rightRow .num {
+	width: 10px;
+}
+
+#rightRow .fundingPost {
+	display: flex;
+	justify-content: space-between;
+}
+
+#rightRow .fundingPost .thumbnail {
+	width: 100px;
+	height: 95px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+#rightRow .fundingPost .contents {
+	width: 155px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#rightRow .fundingPost .title {
+	font-size: 11pt;
+	color: black;
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	font-weight: 700;
+}
+
+#rightRow .fundingPost .last {
+	display: flex;
+	justify-content: flex-start;
+	align-items: baseline;
+}
+.slick-arrow {
+	width: 30px;
+	height: 30px;
+	top: -16%;
+}
+
+.slick-arrow:before {
+	font-size: 30px;
+	color: rgb(240, 93, 35);
+}
+
+.slick-prev {
+	left: 25%;
+}
+
+.slick-next {
+	right: 67%;
+}

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="cm">
+
+
+
+	<!-- 마이페이지 -->
+	
+	<select id="selectNickname" resultType="string" parameterType="string">
+		select nickname from members where id = #{value}
+	</select>
+	<select id="selectProfileImage" resultType="string" parameterType="string">
+		select profileImage from members where id = #{value}
+	</select>
+	<select id="selectGHeartCount" resultType="int" parameterType="int">
+		select ifnull(count(memberId),0) memberId from gongguHearts where postId = #{value}
+	</select>
+	<select id="selectGReplyCount" resultType="int" parameterType="int">
+		select ifnull(count(memberId),0) memberId from gongguReply where postId = #{value}
+	</select>
+	<select id="selectSHeartCount" resultType="int" parameterType="int">
+		select ifnull(count(memberId),0) memberId from storyHearts where postId = #{value}
+	</select>
+	<select id="selectSReplyCount" resultType="int" parameterType="int">
+		select ifnull(count(memberId),0) memberId from storyReply where postId = #{value}
+	</select>
+	
+	
+	
+	<select id="selectMypageStory" resultType="dto.StoryPostsDTO" parameterType="string">
+		select * from storyPosts where memberId = #{value} order by id desc
+	</select>
+	<select id="selectWriteGonggu" resultType="dto.GongguDTO" parameterType="string">
+		select * from gonggu where memberId = #{value} order by id desc
+	</select>
+	<select id="selectParticipateGonggu" resultType="dto.GongguDTO" parameterType="string">
+		select * from gonggu where id in (select postId from gongguPersonnels where personnelId = #{value}) order by id desc
+	</select>
+	<select id="selectProduct" resultType="dto.ProductBean" parameterType="int">
+		select id, imageNo1, name, price, discountRate, sellerId from products where id=#{value}
+	</select>
+	<select id="selectNoticeCount" resultType="int" parameterType="String">
+		select ifnull(count(memberId),0) memberId from notice where memberId = #{value}
+	</select>
+	<select id="selectNotice" resultType="dto.NoticeDTO" parameterType="Map">
+		select * from notice where memberId = #{memberId} order by id desc limit #{page},7
+	</select>
+	
+	
+	
+	<select id="selectMypageLikedPdt" resultType="dto.ProductBean" parameterType="string">
+		select * from products where id in (SELECT productId FROM productshearts where memberid=#{value} order by date desc)
+	</select>
+	<select id="selectMypageLikedStory" resultType="dto.StoryPostsDTO" parameterType="string">
+		select id, memberId, title, thumbnail from storyposts where id in (SELECT postId FROM storyhearts where memberid=#{value} order by date desc)
+	</select>
+	<select id="selectMypageLikedGonggu" resultType="dto.GongguDTO" parameterType="string">
+		select * from gonggu where id in (SELECT postId FROM gongguhearts where memberid=#{value} order by date desc)
+	</select>
+	<select id="selectMypageLikedFunding" resultType="dto.FundingPostDTO" parameterType="string">
+		select * from FundingPost where id in (SELECT postId FROM fundinghearts where memberid=#{value} order by date desc)
+	</select>
+	
+	
+	<select id="selectMypageReply" resultType="dto.CReplyDTO" parameterType="string">
+		select * from GongguReply where memberId = #{memberId} order by date desc
+	</select>
+	<select id="selectMypageMember" resultType="dto.MembersBean" parameterType="string">
+		select * from members where id = #{memberId}
+	</select>
+	<update id="updateMypageMember" parameterType="dto.MembersBean">
+		update members set name=#{name}, nickname=#{nickname}, tel=#{tel}, address1=#{address1}, address2=#{address2}, profileImage=#{profileImage} where id = #{id}
+	</update>
+	<update id="updateMypagePw" parameterType="dto.MembersBean">
+		update members set pw=#{pw} where id=#{id}
+	</update>
+	
+	
+	
+	
+	<select id="selectMypageOrder" resultType="dto.OrderBean" parameterType="string">
+		select * from orders where memberId = #{value} order by orderId desc
+	</select>
+	<select id="selectMypageFunding" resultType="dto.FundingOrdersDTO" parameterType="string">
+		select * from fundingorders where memberId = #{value} order by id desc
+	</select>
+	<select id="selectMypageFundingOptions" resultType="dto.FundingOptionDTO" parameterType="int">
+		select * from fundingoption where id = #{value} 
+	</select>
+	<select id="selectMypageFundingPost" resultType="dto.FundingPostDTO" parameterType="int">
+		select sellerid, title, thumbnail from fundingpost where id = #{value} 
+	</select>
+	
+	
+</mapper>
+ 

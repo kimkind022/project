@@ -1,0 +1,193 @@
+.wrap0 {
+	display: flex;
+	width: 100%;
+	background-color: rgb(247, 247, 242);
+}
+
+#joinSection {
+	width: fit-content;
+	padding: 50px 130px 0 130px;
+	margin: 0px auto;
+	background-color: white;
+}
+
+#joinSection table {
+	border: 0;
+}
+
+#joinSection th, td {
+	padding: 10px;
+}
+
+#joinSection td:nth-child(1) {
+	width: 95px;
+}
+
+#joinSection td:nth-child(2) {
+	width: 323px;
+}
+
+.wrap0>hr {
+	margin: 20px 0;
+}
+
+.inputError {
+	font-size: 9pt;
+	padding: 0;
+	color: red;
+}
+
+.inputError * {
+	margin-top: -10px;
+	margin-bottom: -10px;
+	padding-top: 0;
+	padding-bottom: 0;
+	word-break: keep-all;
+}
+
+.text {
+	padding: 0 16px 0 16px;
+	border-color: #A6A6A6;
+	border-style: solid;
+	border-width: 1.5px;
+	border-radius: 5px;
+	height: 40px;
+	width: 284px;
+	color: black;
+}
+
+.smalltext {
+	border-color: #A6A6A6;
+	border-style: solid;
+	border-width: 1.5px;
+	border-radius: 5px;
+	height: 40px;
+	color: #A6A6A6;
+}
+
+.fWeight {
+	font-weight: normal;
+}
+
+.checkb {
+	height: 15px;
+	vertical-align: center;
+	color: rgb(240, 93, 35);
+}
+
+.SNSSignUp {
+	font-size: 9pt;
+	color: gray;
+	font-weight: normal;
+	margin: 0 0 15px 0;
+}
+
+.cR {
+	color: red;
+}
+
+.cG {
+	color: #A6A6A6;
+}
+
+.bigbtn {
+	height: 45px;
+	width: 170px;
+	border-width: 2px;
+	border-color: rgb(240, 93, 35);
+	border-style: solid;
+	border-radius: 5px;
+	background-color: white;
+	color: rgb(240, 93, 35);
+	font-weight: bold;
+}
+
+.button {
+	height: 45px;
+	width: 120px;
+	border-width: 2px;
+	border-color: rgb(240, 93, 35);
+	border-style: solid;
+	border-radius: 5px;
+	background-color: white;
+	color: rgb(240, 93, 35);
+	font-weight: bold;
+}
+
+select {
+	height: 100%;
+	width: 115px;
+	color: #A6A6A6;
+}
+
+input:focus {
+	outline: 1px solid #A6A6A6;
+}
+
+.yearmonthdate {
+	display: flex;
+	justify-content: space-between;
+}
+
+.address1 {
+	display: flex;
+	flex-direction: column;
+}
+
+.address2 {
+	display: flex;
+	justify-content: start;
+}
+
+.emailDiv {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.emailDiv>div:last-child {
+	position: relative;
+}
+
+.emailDiv>div:last-child>div:last-child {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.directInput {
+	position: relative;
+}
+
+.directInput>div:last-child {
+	position: absolute;
+	top: 25%;
+	right: 10px;
+}
+
+.directInput>div:last-child>input {
+	background-color: white;
+	color: rgb(240, 93, 35);
+	border: 0;
+	font-weight: 700;
+}
+
+input[name=pwRe] {
+	background-color: #EAEAEA;
+}
+
+select[name=month] {
+	background-color: #EAEAEA;
+}
+
+input[name=address] {
+	background-color: #EAEAEA;
+}
+
+input[name=day] {
+	background-color: #EAEAEA;
+}
+
+input[name=addressInfo] {
+	background-color: #EAEAEA;
+}

@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fd">
+
+<resultMap  id="fundingPost" type="dto.FundingPostDTO">
+<result column="id" property="id" />
+<result column="sellerId" property="sellerId" />
+<result column="category" property="category" />
+<result column="title" property="title" />
+<result column="targetAmount" property="targetAmount" />
+<result column="startDate" property="startDate" />
+<result column="endDate" property="endDate" />
+<result column="readCount" property="readCount" />
+<result column="thumbnail" property="thumbnail" />
+<result column="storyImage" property="storyImage" />
+<result column="rewardsImage" property="rewardsImage" />
+<result column="newsImage" property="newsImage" />
+<result column="status" property="status" />
+<result column="status2" property="status2" />
+<result column="minPrice" property="minPrice" />
+<result column="sumCost" property="sumCost" />
+	<association property="sellersBean" javaType="dto.MembersBean">
+		<result column="nickname" property="nickname" />
+		<result column="profileImage" property="profileImage" />
+	</association>
+</resultMap>
+
+	<select
+		id="findInquiryByIdAndMemberId"
+		parameterType="dto.InquiryDTO"
+		resultType="dto.InquiryDTO">
+		select inquiry.* from inquiry
+		where (inquiry.id = #{id} and inquiry.memberId = #{memberId})
+	</select>
+	<insert
+		id="insertInquiry"
+		parameterType="dto.InquiryDTO">
+		insert into inquiry (memberId , title , contents ) values
+		(#{memberId},#{title},#{contents})
+	</insert>
+	<update
+		id="updateInquiry"
+		parameterType="dto.InquiryDTO">
+		update inquiry set title = #{title} , contents = #{contents} where
+		(inquiry.id = #{id} and
+		inquiry.memberId = #{memberId})
+	</update>
+	<delete
+		id="deleteInquiry"
+		parameterType="dto.InquiryDTO">
+		delete from inquiry where (inquiry.id = #{id} and inquiry.memberId =
+		#{memberId})
+	</delete>
+
+	<select
+		id="selectFundingCount"
+		parameterType="dto.PageStatusDTO"
+		resultMap="fundingPost">
+		select count(*) as `id` from fundingpost
+		<choose>
+			<when test="status eq 'all'">
+				where true
+			</when>
+			<when test="status eq 'ended'">
+			<![CDATA[
+			where fundingpost.endDate <= now()
+			]]>
+			</when>
+			<otherwise>
+			<![CDATA[
+			where fundingpost.endDate > now()
+			]]>
+			</otherwise>
+		</choose>
+		<choose>
+			<when test="status3 eq 'vegetable'">
+				and fundingpost.category = '채소'
+			</when>
+			<when test="status3 eq 'fruit'">
+				and fundingpost.category = '과일'
+			</when>
+			<when test="status3 eq 'grain'">
+				and fundingpost.category = '곡류'
+			</when>
+			<when test="status3 eq 'jam'">
+				and fundingpost.category = '잼/청류'
+			</when>
+			<when test="status3 eq 'showmore'">
+				and fundingpost.category = '기타'
+			</when>
+			<otherwise>
+				and true
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="selectFundingpostList" parameterType="dto.PageStatusDTO" resultMap="fundingPost">
+		SELECT fundingpost.* , members.nickname , members.profileImage , minPrice , sumCost FROM fundingpost
+
+		LEFT OUTER JOIN members ON fundingpost.sellerId = members.id
+
+		LEFT OUTER JOIN (
+		SELECT fundingoption.fundingId , MIN(fundingoption.price) minPrice FROM fundingoption
+		GROUP BY fundingoption.fundingId ) fundingoption
+		ON fundingpost.id = fundingoption.fundingId
+
+		LEFT OUTER JOIN (
+		SELECT fundingorders.fundingId , IFNULL(SUM(fundingorders.cost),0) sumCost FROM fundingorders
+		GROUP BY fundingorders.fundingId ) fundingorders
+		ON fundingpost.id = fundingorders.fundingId
+
+		<choose>
+			<when test=" status eq 'all'">
+				where true
+			</when>
+			<when test="status eq 'ended'">
+			<![CDATA[
+			where fundingpost.endDate <= now()
+			]]>
+			</when>
+			<otherwise>
+			<![CDATA[
+			where fundingpost.endDate > now()
+			]]>
+			</otherwise>
+		</choose>
+		<choose>
+			<when test="status3 eq 'vegetable'">
+				and fundingpost.category = '채소'
+			</when>
+			<when test="status3 eq 'fruit'">
+				and fundingpost.category = '과일'
+			</when>
+			<when test="status3 eq 'grain'">
+				and fundingpost.category = '곡류'
+			</when>
+			<when test="status3 eq 'jam'">
+				and fundingpost.category = '잼/청류'
+			</when>
+			<when test="status3 eq 'showmore'">
+				and fundingpost.category = '기타'
+			</when>
+			<otherwise>
+				and true
+			</otherwise>
+		</choose>
+		<choose>
+			<when test="status2 eq 'minPriceAsc'">
+				order by if(minPrice is null,0,1) desc , minPrice asc
+			</when>
+			<when test="status2 eq 'sumCostDesc'">
+				order by sumCost desc
+			</when>
+			<when test="status2 eq 'endDateAsc'">
+				order by if(fundingpost.endDate > now(),1,0) desc , abs(fundingpost.endDate - now()) asc
+			</when>
+			<otherwise>
+				order by fundingpost.startDate desc
+			</otherwise>
+		</choose>
+		limit #{page} , #{limit}
+	</select>
+  
+  <select id="selectFundingById"
+  parameterType="Integer"
+  resultMap="fundingPost">
+  select fundingpost.* ,
+    members.nickname , members.profileImage , minPrice , sumCost
+    from fundingpost
+    
+    left outer join (
+    select members.id , members.nickname , members.profileImage from members) members
+    on fundingpost.sellerId
+    = members.id
+
+    left outer join (
+    select fundingoption.fundingId , min(fundingoption.price) minPrice
+    from fundingoption
+    group by
+    fundingoption.fundingId ) fundingoption
+    on fundingpost.id = fundingoption.fundingId
+
+    left outer join (
+    select
+    fundingorders.fundingId , ifnull(sum(fundingorders.cost),0) as sumCost from fundingorders
+    group by
+    fundingorders.fundingId
+    )
+    fundingorders
+    on fundingpost.id = fundingorders.fundingId
+    
+    where fundingpost.id in 
+    
+    <foreach collection="list" item="item" open="(" separator="," close=")">
+    #{item}
+    </foreach>
+  
+  </select>
+  
+  
+  
+  
+  
+
+	<select
+		id="selectNicknameListByMemberIdList"
+		parameterType="String"
+		resultType="dto.MembersBean">
+		select members.id , members.nickname from members
+		where members.id in
+		<foreach
+			collection="list"
+			item="item"
+			open="("
+			close=")"
+			separator=",">
+			#{item}
+		</foreach>
+		group by members.id
+	</select>
+	<select
+		id="selectFundingOptionListByIdList"
+		parameterType="Integer"
+		resultType="dto.FundingOptionDTO">
+		select * from fundingoption
+		where fundingoption.fundingId in
+		<foreach
+			collection="list"
+			item="item"
+			open="("
+			close=")"
+			separator=",">
+			#{item}
+		</foreach>
+		group by fundingoption.fundingId
+	</select>
+	<select
+		id="selectFundingSumCostListMyIdList"
+		parameterType="Integer"
+		resultType="dto.FundingOrdersDTO">
+		select fundingorders.fundingId , ifnull(sum(fundingorders.cost),0) as sumCost from fundingorders
+		where fundingorders.fundingId in
+		<foreach
+			collection="list"
+			item="item"
+			open="("
+			close=")"
+			separator=",">
+			#{item}
+		</foreach>
+		group by fundingorders.fundingId
+	</select>
+
+	<select
+		id="selectMemberById"
+		parameterType="String"
+		resultType="dto.MembersBean">
+		select * from members where id = #{value}
+	</select>
+
+	<select
+		id="selectMemberByIdAndPush"
+		parameterType="dto.MembersBean"
+		resultType="dto.MembersBean">
+		select * from members where id = #{id} and push like CONCAT(‘%’, #{push}, ‘%’)
+	</select>
+
+	<update
+		id="updatePush"
+		parameterType="dto.MembersBean">
+		update members set push = #{push} where id = #{id}
+	</update>
+  
+  <select id="selectItemCode" resultType="lhj.periodproduct.ItemCode">
+  select 
+  pricecondition.p_itemcode , pricecondition.p_itemcategorycode , 
+  pricecondition.p_kindcode , pricecondition.p_itemname 
+  from pricecondition
+  </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

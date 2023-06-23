@@ -1,0 +1,496 @@
+.wrap1200 {
+	min-height: 100%;
+	width: 1200px;
+	height: 1800px;
+	position: relative;
+	margin: 0 auto;
+	padding-bottom: 150px;
+}
+
+.followBtn {
+	float: right;
+	width: fit-content;
+	height: fit-content;
+	margin: 2px 0 0 10px;
+	padding: 5px 10px 5px 10px;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	background-color: white;
+	color: gray;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.followBtn2 {
+	float: right;
+	width: fit-content;
+	height: fit-content;
+	margin: 2px 0 0 10px;
+	padding: 5px 10px 5px 10px;
+	border: 1px solid rgb(240,93,35);
+	border-radius: 5px;
+	background-color: rgb(240,93,35);
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+
+#cSlider {
+	width: 1200px;
+	height: 580px;
+	margin: 30px auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.cSlider1 {
+	float: left;
+	width: 900px;
+	height: 580px;
+	border-radius: 10px 10px 10px 10px;
+	background-color: lightgray;
+	overflow: hidden;
+	position: relative;
+}
+
+.cSlider1Txt {
+	width: 800px;
+	bottom: 50px;
+	left: 50px;
+	bottom: 50px;
+	font-weight: 700;
+	color: white;
+	text-shadow: 0 0 4px #00000030;
+}
+
+.cSlider1Txt>div:first-child {
+	float: left;
+}
+
+.cSlider1Txt>div>span {
+	font-size: 25pt;
+}
+
+.cSliderprofile {
+	width: 260px;
+	display: flex;
+	align-items: center;
+	font-size: 11pt;
+}
+
+.cSliderBtn {
+	float: right;
+	width: 140px;
+	height: 50px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	border: 1px solid white;
+	border-radius: 5px;
+	background-color: transparent;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cSliderBtn:hover {
+	border-color: rgb(240, 93, 35);
+	background-color: rgb(240, 93, 35);
+}
+
+.cSlider2 {
+	float: left;
+	width: 280px;
+	height: 580px;
+	border-radius: 10px 10px 10px 10px;
+	background-color: lightgray;
+	overflow: hidden;
+}
+
+.cSlider2 div{
+	width: 280px;
+	height: 580px;
+	overflow: hidden;
+}
+#cSlider img {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover !important;
+}
+
+.contentslider {
+	width: 1200px;
+	height: fit-content;
+	float: left;
+}
+
+#cSubnav {
+	width: 1200px;
+	height: 52px;
+	margin: 0px auto;
+}
+
+#cSubnav li {
+	float: left;
+	padding-right: 30px;
+	font-size: 14pt;
+}
+
+#cSubnav>div {
+	height: 50px;
+	display: flex;
+	align-items: center;
+}
+
+#cSubnav hr {
+	background-color: black;
+}
+
+.titleDiv {
+	width: 1180px;
+	height: 50px;
+	position: relative;
+}
+
+.containerTitle {
+	float: left;
+	font-size: 17pt;
+	font-weight: 700;
+}
+
+#menu {
+	margin-top: 30px;
+	float: right;
+	width: 280px;
+	height: 310px;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: stretch;
+	align-content: space-between;
+}
+
+#menu>div {
+	width: 230px;
+	height: 74px;
+	padding: 14px 25px;
+	background-color: #EAEAEA;
+	border-radius: 5px;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: stretch;
+	align-content: center;
+	position: relative;
+}
+
+#menu>div:hover {
+	background-color: #d5d5d5;
+	transition: all 0.3s;
+}
+
+#menu>div>span {
+	right: 15px;
+	top: 40px;
+	position: absolute;
+	color: gray;
+}
+
+#menu>div li:first-child {
+	color: gray;
+	font-size: 10pt;
+	padding-bottom: 3px;
+}
+
+#menu>div li:nth-child(2) {
+	color: #424242;
+	font-size: 13pt;
+	font-weight: bold;
+}
+
+/* 인기회원 */
+.container1 {
+	float: left;
+	width: 900px;
+	height: 260px;
+	margin: 30px 20px 0 0;
+}
+
+.container1>div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 0;
+}
+
+.contents1 {
+	position: relative;
+	float: left;
+	width: 260px;
+	height: 140px;
+}
+
+.contents1>div:first-child {
+	font-size: 14pt;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	margin-bottom: 5px;
+}
+
+.profileImg2 {
+	float: left;
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	background-color: lightgray;
+	overflow: hidden;
+}
+
+.profileImg2 img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.profileTxt {
+	width: 150px;
+	height: 100px;
+	float: left;
+	margin: 0 0 3px 10px;
+	float: left;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: stretch;
+	align-content: space-between;
+	align-content: stretch;
+	float: left
+}
+
+/* 게시글 */
+.viewCount {
+	width: 260px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.viewCount img {
+	width: 30px;
+	margin-right: 5px;
+}
+
+.viewCount>div {
+	font-size: 10pt;
+	color: gray;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.contents {
+	float: left;
+	width: 280px;
+	height: auto;
+}
+
+.postImg {
+	float: left;
+	width: 280px;
+	height: 200px;
+	border-radius: 10px 10px 10px 10px;
+	background-color: lightgray;
+	overflow: hidden;
+}
+
+.postImg img, .pdtImg img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.contents:hover>.postImg img {
+	transition: all 0.1s linear;
+	transform: scale(1.02);
+	opacity: 80%;
+}
+
+.postTxt {
+	font-size: 12pt;
+	font-weight: 700;
+	margin: 15px 0;
+}
+
+.postProfile {
+	width: 260px;
+	display: flex;
+	align-items: center;
+	font-size: 11pt;
+	color: gray;
+}
+
+#small_profilePic {
+	float: left;
+	width: 40px;
+	height: 40px;
+	background-color: gray;
+	margin-right: 10px;
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+#small_profilePic img {
+	width: 40px;
+	object-fit: cover;
+}
+
+.container {
+	float: left;
+	width: 1200px;
+	height: 400px;
+	margin: 0px 0 20px 0;
+}
+
+.container>div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 0;
+}
+
+.postImg {
+	float: left;
+	width: 280px;
+	height: 200px;
+	border-radius: 10px 10px 10px 10px;
+	background-color: lightgray;
+	overflow: hidden;
+}
+
+.postImg img, .pdtImg img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.contents:hover>.postImg img {
+	transition: all 0.1s linear;
+	transform: scale(1.02);
+	opacity: 80%;
+}
+
+.container3 {
+	float: left;
+	width: 1200px;
+	height: 500px;
+	margin: 0px 0 20px 0;
+}
+
+.container3>div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 0;
+}
+
+.contents3 {
+	float: left;
+	width: 380px;
+	height: auto;
+}
+
+.pdtImg:hover > .pdtImg img {
+	transition: all 0.1s linear;
+	transform: scale(1.02);
+	opacity: 80%;
+}
+
+.myLocation {
+	width: fit-content;
+	height: fit-content;
+	font-size: 13pt;
+	color: gray;
+	padding: 0 !important;
+}
+
+.cPdtInfo {
+	width: 380px;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.pdtImg {
+	float: left;
+	width: 130px;
+	height: 130px;
+	border-radius: 10px 10px 10px 10px;
+	background-color: lightgray;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.gongguTxt {
+	float: left;
+	width: 240px;
+	height: fit-content;
+	cursor: pointer;
+	font-size: 11pt;
+}
+
+.pdtnonsale {
+	color: gray;
+	font-size: 10pt;
+	text-decoration-line: line-through;
+}
+
+.gongguPost .viewCount {
+	width: 190px;
+}
+
+.progress {
+	appearance: none;
+}
+
+.progress::-webkit-progress-bar {
+	width: 380px;
+	height: 15px;
+	background: rgb(240, 212, 206);
+	border-radius: 7.5px;
+}
+
+.progress::-webkit-progress-value {
+	border-radius: 7.5px;
+	background: rgb(240, 93, 35);
+}
+
+.progressValue {
+	color: rgb(240, 93, 35);
+	font-weight: bold;
+}
+
+.progressEnd {
+	appearance: none;
+}
+
+.progressEnd::-webkit-progress-bar {
+	width: 380px;
+	height: 15px;
+	background: #EAEAEA;
+	border-radius: 7.5px;
+}
+
+.progressEnd::-webkit-progress-value {
+	border-radius: 7.5px;
+	background: gray;
+}
+
+.progressEndValue {
+	color: gray;
+	font-weight: bold;
+}
